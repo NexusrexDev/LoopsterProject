@@ -19,7 +19,7 @@ class references():
         if s_type == "midBlueGray":
             return "background-color: rgb(50, 63, 75);"
         if s_type == "radioButton":
-            return "QRadioButton::indicator::unchecked{image: url(assets/rbUnselected.png);}QRadioButton::indicator::checked{image: url(assets/rbSelected.png);}"
+            return "QRadioButton::indicator{image: url(assets/rbUnselected.png);}QRadioButton::indicator::unchecked{image: url(assets/rbUnselected.png);}QRadioButton::indicator::checked{image: url(assets/rbSelected.png);}"
         if s_type == "shadow":
             return "color: rgb(26, 26, 26);"
         if s_type == "grayText":
