@@ -568,7 +568,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.resetButton.setText("New Loop")
 
         #Buttons
-        #self.listenComplete.clicked.connect(self.playSound)
+        self.listenComplete.clicked.connect(self.combineSound)
         self.resetButton.clicked.connect(lambda: [self.resetSelection(),self.gotoPage(1)])
 
         self.stackedWidget.addWidget(self.loopListen)
@@ -685,6 +685,23 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         track = AudioSegment.from_wav(trackDirectory)
         if self.playing == False:
             self.playback = _play_with_simpleaudio(track)
+            self.playing = True
+        else:
+            if self.playback.is_playing():
+                self.playback.stop()
+            self.playing = False
+
+    def combineSound(self):
+        #Combines the audio files, then plays them
+        if self.playing == False:
+            drumTrack = AudioSegment.from_wav(references.finalSounds(self, 0, self.drum))
+            bassTrack = AudioSegment.from_wav(references.finalSounds(self, 1, self.bass, self.prog))
+            dnb = drumTrack.overlay(bassTrack)
+            padTrack = AudioSegment.from_wav(references.finalSounds(self, 2, self.pad, self.prog))
+            dnb2 = dnb.overlay(padTrack)
+            chordTrack = AudioSegment.from_wav(references.finalSounds(self, 3, self.stab, self.prog))
+            finalTrack = dnb2.overlay(chordTrack)
+            self.playback = _play_with_simpleaudio(finalTrack)
             self.playing = True
         else:
             if self.playback.is_playing():
