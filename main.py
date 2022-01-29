@@ -7,6 +7,7 @@ import sys
 class Ui_MainWindow(QtWidgets.QMainWindow):
     # Variables for music
     playback = None
+    playing = False
     prog = 0
     drum = 0
     bass = 0
@@ -156,9 +157,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.prog3.setGeometry(QtCore.QRect(80, 220, 481, 61))
         self.prog3.setStyleSheet(references.styleSheet(self, "mainButton"))
         self.prog3.setObjectName("prog3")
-        self.prog1.setText("Progression 1")
-        self.prog2.setText("Progression 2")
-        self.prog3.setText("Progression 3")
+        self.prog1.setText("Happy")
+        self.prog2.setText("Dark")
+        self.prog3.setText("Hopeful")
 
         #Buttons
         self.prog1.clicked.connect(lambda: [self.partAssign(0,0),self.gotoPage(self.stackedWidget.currentIndex() + 1)])
@@ -249,14 +250,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.p4_s2.setObjectName("p4_s2")
         self.bck1.setText("Back")
         self.nxt1.setText("Next")
-        self.l1_s2.setText("Track 1")
-        self.l2_s2.setText("Track 2")
-        self.l3_s2.setText("Track 3")
-        self.l4_s2.setText("Track 4")
+        self.l1_s2.setText("Four on the Floor")
+        self.l2_s2.setText("Heavy Third")
+        self.l3_s2.setText("Upbeat and Clappy")
+        self.l4_s2.setText("Complex")
 
         #Buttons
         self.nxt1.clicked.connect(lambda: [self.partAssign(1),self.gotoPage(self.stackedWidget.currentIndex() + 1)])
         self.bck1.clicked.connect(lambda: [self.gotoPage(self.stackedWidget.currentIndex() - 1)])
+        self.p1_s2.clicked.connect(lambda: self.playSound(references.previewSounds(self, 0, 0)))
+        self.p2_s2.clicked.connect(lambda: self.playSound(references.previewSounds(self, 0, 1)))
+        self.p3_s2.clicked.connect(lambda: self.playSound(references.previewSounds(self, 0, 2)))
+        self.p4_s2.clicked.connect(lambda: self.playSound(references.previewSounds(self, 0, 3)))
 
         self.stackedWidget.addWidget(self.step2)
 
@@ -340,14 +345,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.p4_s3.setObjectName("p4_s3")
         self.nxt2.setText("Next")
         self.bck2.setText("Back")
-        self.l1_s3.setText("Track 1")
-        self.l2_s3.setText("Track 2")
-        self.l3_s3.setText("Track 3")
-        self.l4_s3.setText("Track 4")
+        self.l1_s3.setText("Long")
+        self.l2_s3.setText("Rolling")
+        self.l3_s3.setText("Three Sixteenths")
+        self.l4_s3.setText("Offbeat")
 
         # Buttons
         self.nxt2.clicked.connect(lambda: [self.partAssign(2),self.gotoPage(self.stackedWidget.currentIndex() + 1)])
         self.bck2.clicked.connect(lambda: [self.gotoPage(self.stackedWidget.currentIndex() - 1)])
+        self.p1_s3.clicked.connect(lambda: self.playSound(references.previewSounds(self, 1, 0, self.prog)))
+        self.p2_s3.clicked.connect(lambda: self.playSound(references.previewSounds(self, 1, 1, self.prog)))
+        self.p3_s3.clicked.connect(lambda: self.playSound(references.previewSounds(self, 1, 2, self.prog)))
+        self.p4_s3.clicked.connect(lambda: self.playSound(references.previewSounds(self, 1, 3, self.prog)))
 
         self.stackedWidget.addWidget(self.step3)
 
@@ -431,14 +440,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.p4_s4.setObjectName("p4_s4")
         self.nxt3.setText("Next")
         self.bck3.setText("Back")
-        self.l1_s4.setText("Track 1")
-        self.l2_s4.setText("Track 2")
-        self.l3_s4.setText("Track 3")
-        self.l4_s4.setText("Track 4")
+        self.l1_s4.setText("Strings")
+        self.l2_s4.setText("Smooth")
+        self.l3_s4.setText("Fuzzy")
+        self.l4_s4.setText("Breathy")
 
         # Buttons
         self.nxt3.clicked.connect(lambda: [self.partAssign(3),self.gotoPage(self.stackedWidget.currentIndex() + 1)])
         self.bck3.clicked.connect(lambda: [self.gotoPage(self.stackedWidget.currentIndex() - 1)])
+        self.p1_s4.clicked.connect(lambda: self.playSound(references.previewSounds(self, 2, 0, self.prog)))
+        self.p2_s4.clicked.connect(lambda: self.playSound(references.previewSounds(self, 2, 1, self.prog)))
+        self.p3_s4.clicked.connect(lambda: self.playSound(references.previewSounds(self, 2, 2, self.prog)))
+        self.p4_s4.clicked.connect(lambda: self.playSound(references.previewSounds(self, 2, 3, self.prog)))
 
         self.stackedWidget.addWidget(self.step4)
 
@@ -522,14 +535,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.p4_s5.setObjectName("p4_s5")
         self.nxt4.setText("Next")
         self.bck4.setText("Back")
-        self.l1_s5.setText("Track 1")
-        self.l2_s5.setText("Track 2")
-        self.l3_s5.setText("Track 3")
-        self.l4_s5.setText("Track 4")
+        self.l1_s5.setText("Syncopated Hits")
+        self.l2_s5.setText("Bouncy Octaves")
+        self.l3_s5.setText("Longer Hits")
+        self.l4_s5.setText("Sixteenth Tensions")
 
         # Buttons
         self.nxt4.clicked.connect(lambda: [self.partAssign(4),self.gotoPage(self.stackedWidget.currentIndex() + 1)])
         self.bck4.clicked.connect(lambda: [self.gotoPage(self.stackedWidget.currentIndex() - 1)])
+        self.p1_s5.clicked.connect(lambda: self.playSound(references.previewSounds(self, 3, 0, self.prog)))
+        self.p2_s5.clicked.connect(lambda: self.playSound(references.previewSounds(self, 3, 1, self.prog)))
+        self.p3_s5.clicked.connect(lambda: self.playSound(references.previewSounds(self, 3, 2, self.prog)))
+        self.p4_s5.clicked.connect(lambda: self.playSound(references.previewSounds(self, 3, 3, self.prog)))
 
         self.stackedWidget.addWidget(self.step5)
 
@@ -551,13 +568,15 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.resetButton.setText("New Loop")
 
         #Buttons
-        self.listenComplete.clicked.connect(self.playSound)
+        #self.listenComplete.clicked.connect(self.playSound)
         self.resetButton.clicked.connect(lambda: [self.resetSelection(),self.gotoPage(1)])
 
         self.stackedWidget.addWidget(self.loopListen)
 
     #Functionality
     def gotoPage(self,page):
+        # Stops any possible sounds
+        self.stopSound()
         if self.stackedWidget.currentIndex() > 1 and self.stackedWidget.currentIndex() < 6 and page > self.stackedWidget.currentIndex():
             if self.canChange() == True: #Only works for next button
                 self.stackedWidget.setCurrentIndex(page)
@@ -610,7 +629,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         sys.exit()
 
     def stepChange(self):
-        self.stepSubText = ["Get Started", "Song Mood", "Drums", "Bass", "Pad", "Stabs", "Listen to the loop!"]
+        self.stepSubText = ["Get Started", "Song Mood", "Drums", "Bass", "Pad", "Chord Stabs", "Listen to the loop!"]
         self.stepText = [
             f"<html><head/><body><p><span style=\" font-weight:600;\">Step {self.stackedWidget.currentIndex()}:</span> {self.stepSubText[0]}</p></body></html>",
             f"<html><head/><body><p><span style=\" font-weight:600;\">Step 1.{self.stackedWidget.currentIndex()-1}:</span> Build the loop ({self.stepSubText[self.stackedWidget.currentIndex()]})</p></body></html>",
@@ -656,8 +675,21 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             if i.isChecked() == True:
                 i.setChecked(False)
 
-    def playSound(self):
-        print(f"Sound consists of, Progression:{self.prog},\nDrums:{self.drum},\nBass:{self.bass},\nPad:{self.pad},\nStab:{self.stab}")
+    def stopSound(self):
+        if self.playing == True:
+            if self.playback.is_playing():
+                self.playback.stop()
+            self.playing = False
+
+    def playSound(self,trackDirectory):
+        track = AudioSegment.from_wav(trackDirectory)
+        if self.playing == False:
+            self.playback = _play_with_simpleaudio(track)
+            self.playing = True
+        else:
+            if self.playback.is_playing():
+                self.playback.stop()
+            self.playing = False
 
 def windowStart():
     app = QtWidgets.QApplication(sys.argv)

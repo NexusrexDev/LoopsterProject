@@ -28,3 +28,95 @@ class references():
             return "font: 10pt \"Orbitron\"; color: rgb(123, 135, 148);"
         if s_type == "whiteText":
             return "font: 50 16pt \"Orbitron\"; color: rgb(245, 247, 250);"
+    def previewSounds(self,i_type,t_num,prog = 0):
+        #i_type = instrument type, prog = song mood/chord progression, t_num = track number
+        drumlist = ["assets/audio/drums/preview/p_drum_4floor.wav","assets/audio/drums/preview/p_drum_heavier.wav",
+                    "assets/audio/drums/preview/p_drum_clapupbeat.wav","assets/audio/drums/preview/p_drum_complex.wav"]
+        #[prog][t_num] => happy, dark, hopeful
+        bassList = [["assets/audio/chordBased/happy/bass/preview/p_hap_bass_long.wav","assets/audio/chordBased/happy/bass/preview/p_hap_bass_rolling.wav",
+                     "assets/audio/chordBased/happy/bass/preview/p_hap_bass_316.wav","assets/audio/chordBased/happy/bass/preview/p_hap_bass_offbeat.wav"],
+                    ["assets/audio/chordBased/dark/bass/preview/p_dark_bass_long.wav","assets/audio/chordBased/dark/bass/preview/p_dark_bass_rolling.wav",
+                     "assets/audio/chordBased/dark/bass/preview/p_dark_bass_316.wav","assets/audio/chordBased/dark/bass/preview/p_dark_bass_offbeat.wav"],
+                    ["assets/audio/chordBased/hopeful/bass/preview/p_hope_bass_long.wav","assets/audio/chordBased/hopeful/bass/preview/p_hope_bass_rolling.wav",
+                     "assets/audio/chordBased/hopeful/bass/preview/p_hope_bass_316.wav","assets/audio/chordBased/hopeful/bass/preview/p_hope_bass_offbeat.wav"]]
+        padList = [["assets/audio/chordBased/happy/pad/preview/p_hap_pad_strings.wav",
+                    "assets/audio/chordBased/happy/pad/preview/p_hap_pad_smooth.wav",
+                     "assets/audio/chordBased/happy/pad/preview/p_hap_pad_fuzzy.wav",
+                    "assets/audio/chordBased/happy/pad/preview/p_hap_pad_breathy.wav"],
+                    ["assets/audio/chordBased/dark/pad/preview/p_dark_pad_strings.wav",
+                     "assets/audio/chordBased/dark/pad/preview/p_dark_pad_smooth.wav",
+                     "assets/audio/chordBased/dark/pad/preview/p_dark_pad_fuzzy.wav",
+                     "assets/audio/chordBased/dark/pad/preview/p_dark_pad_breathy.wav"],
+                    ["assets/audio/chordBased/hopeful/pad/preview/p_hope_pad_strings.wav",
+                     "assets/audio/chordBased/hopeful/pad/preview/p_hope_pad_smooth.wav",
+                     "assets/audio/chordBased/hopeful/pad/preview/p_hope_pad_fuzzy.wav",
+                     "assets/audio/chordBased/hopeful/pad/preview/p_hope_pad_breathy.wav"]]
+        chordList = [["assets/audio/chordBased/happy/chords/preview/p_hap_chord_synco.wav",
+                    "assets/audio/chordBased/happy/chords/preview/p_hap_chord_bouncy.wav",
+                    "assets/audio/chordBased/happy/chords/preview/p_hap_chord_longer.wav",
+                    "assets/audio/chordBased/happy/chords/preview/p_hap_chord_16tension.wav"],
+                   ["assets/audio/chordBased/dark/chords/preview/p_dark_chord_synco.wav",
+                    "assets/audio/chordBased/dark/chords/preview/p_dark_chord_bouncy.wav",
+                    "assets/audio/chordBased/dark/chords/preview/p_dark_chord_longer.wav",
+                    "assets/audio/chordBased/dark/chords/preview/p_dark_chord_16tension.wav"],
+                   ["assets/audio/chordBased/hopeful/chords/preview/p_hope_chord_synco.wav",
+                    "assets/audio/chordBased/hopeful/chords/preview/p_hope_chord_bouncy.wav",
+                    "assets/audio/chordBased/hopeful/chords/preview/p_hope_chord_longer.wav",
+                    "assets/audio/chordBased/hopeful/chords/preview/p_hope_chord_16tension.wav"]]
+        if i_type == 0: #Drums
+            return drumlist[t_num]
+        if i_type == 1: #Bass
+            return bassList[prog][t_num]
+        if i_type == 2: #Pad
+            return padList[prog][t_num]
+        if i_type == 3: #Chords
+            return chordList[prog][t_num]
+    def finalSounds(self,i_type,t_num,prog = 0):
+        # i_type = instrument type, prog = song mood/chord progression, t_num = track number
+        drumlist = ["assets/audio/drums/final/drum_4floor.wav", "assets/audio/drums/final/drum_heavier.wav",
+                    "assets/audio/drums/final/drum_clapupbeat.wav", "assets/audio/drums/final/drum_complex.wav"]
+        # [prog][t_num] => happy, dark, hopeful
+        bassList = [["assets/audio/chordBased/happy/bass/final/hap_bass_long.wav",
+                     "assets/audio/chordBased/happy/bass/final/hap_bass_rolling.wav",
+                     "assets/audio/chordBased/happy/bass/final/hap_bass_316.wav",
+                     "assets/audio/chordBased/happy/bass/final/hap_bass_offbeat.wav"],
+                    ["assets/audio/chordBased/dark/bass/final/dark_bass_long.wav",
+                     "assets/audio/chordBased/dark/bass/final/dark_bass_rolling.wav",
+                     "assets/audio/chordBased/dark/bass/final/dark_bass_316.wav",
+                     "assets/audio/chordBased/dark/bass/final/dark_bass_offbeat.wav"],
+                    ["assets/audio/chordBased/hopeful/bass/final/hope_bass_long.wav",
+                     "assets/audio/chordBased/hopeful/bass/final/hope_bass_rolling.wav",
+                     "assets/audio/chordBased/hopeful/bass/final/hope_bass_316.wav",
+                     "assets/audio/chordBased/hopeful/bass/final/hope_bass_offbeat.wav"]]
+        padList = [["assets/audio/chordBased/happy/pad/final/hap_pad_strings.wav",
+                    "assets/audio/chordBased/happy/pad/final/hap_pad_smooth.wav",
+                    "assets/audio/chordBased/happy/pad/final/hap_pad_fuzzy.wav",
+                    "assets/audio/chordBased/happy/pad/final/hap_pad_breathy.wav"],
+                   ["assets/audio/chordBased/dark/pad/final/dark_pad_strings.wav",
+                    "assets/audio/chordBased/dark/pad/final/dark_pad_smooth.wav",
+                    "assets/audio/chordBased/dark/pad/final/dark_pad_fuzzy.wav",
+                    "assets/audio/chordBased/dark/pad/final/dark_pad_breathy.wav"],
+                   ["assets/audio/chordBased/hopeful/pad/final/hope_pad_strings.wav",
+                    "assets/audio/chordBased/hopeful/pad/final/hope_pad_smooth.wav",
+                    "assets/audio/chordBased/hopeful/pad/final/hope_pad_fuzzy.wav",
+                    "assets/audio/chordBased/hopeful/pad/final/hope_pad_breathy.wav"]]
+        chordList = [["assets/audio/chordBased/happy/chords/final/hap_chord_synco.wav",
+                      "assets/audio/chordBased/happy/chords/final/hap_chord_bouncy.wav",
+                      "assets/audio/chordBased/happy/chords/final/hap_chord_longer.wav",
+                      "assets/audio/chordBased/happy/chords/final/hap_chord_16tension.wav"],
+                     ["assets/audio/chordBased/dark/chords/final/dark_chord_synco.wav",
+                      "assets/audio/chordBased/dark/chords/final/dark_chord_bouncy.wav",
+                      "assets/audio/chordBased/dark/chords/final/dark_chord_longer.wav",
+                      "assets/audio/chordBased/dark/chords/final/dark_chord_16tension.wav"],
+                     ["assets/audio/chordBased/hopeful/chords/final/hope_chord_synco.wav",
+                      "assets/audio/chordBased/hopeful/chords/final/hope_chord_bouncy.wav",
+                      "assets/audio/chordBased/hopeful/chords/final/hope_chord_longer.wav",
+                      "assets/audio/chordBased/hopeful/chords/final/hope_chord_16tension.wav"]]
+        if i_type == 0: #Drums
+            return drumlist[t_num]
+        if i_type == 1: #Bass
+            return bassList[prog][t_num]
+        if i_type == 2: #Pad
+            return padList[prog][t_num]
+        if i_type == 3: #Chords
+            return chordList[prog][t_num]
