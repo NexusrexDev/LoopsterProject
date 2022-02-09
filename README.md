@@ -1,6 +1,6 @@
 # **LoopsterProject**
 <p align = "center">
-<a href="https://github.com/NexusrexGames/LoopsterProject/releases/latest"><img src="https://img.shields.io/github/downloads/NexusrexGames/LoopsterProject/total?color=%233DDC84&style=for-the-badge"></a>
+<a href="https://github.com/NexusrexGames/LoopsterProject/releases/latest"><img src="https://img.shields.io/github/downloads/NexusrexGames/LoopsterProject/total?style=for-the-badge"></a>
 </p>
 
 Loopster is a tiny Python project, inspired by Punk-O-Matic, to create tiny EDM-Styled loops!
