@@ -710,6 +710,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
 def windowStart():
     app = QtWidgets.QApplication(sys.argv)
+    QtGui.QFontDatabase.addApplicationFont('assets/Orbitron-VariableFont_wght.ttf')
     win = Ui_MainWindow()
     win.show()
     sys.exit(app.exec_())
